@@ -7,6 +7,8 @@
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         AllowsTransparency="True"
         Name="MainWin"
+        Icon="/icon.ico"
+        ShowTitleBar="False"
         WindowStartupLocation="CenterScreen"
         Height="450" Width="600">
     <Window.Background>
@@ -17,34 +19,33 @@
             <GradientStop Color="#D0292929" Offset="1.000"/>
         </LinearGradientBrush>
     </Window.Background>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Controls:MetroWindow.WindowCommands>
+        <Controls:WindowCommands VerticalAlignment="Center" Foreground="Wheat">
+            <Image Source="/icon.ico"></Image>
+            <Label Foreground="Wheat" Margin="0,0,150,0">Photo Viewer</Label>
+            <Button Content="Open" Click="Button_Click" Foreground="Wheat"/>
+            <!--<Controls:ToggleSwitch OnLabel="Yes" OffLabel="No" />
+            <Controls:ToggleSwitch Header="WiFi rest state" />-->
+            <CheckBox Name="CheckBox_Nine" Margin="0,0,0,0" Click="CheckBox_Nine_Click" VerticalAlignment="Center" VerticalContentAlignment="Center" Foreground="Wheat">九宫格</CheckBox>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.WindowCommands>
     <Border BorderBrush="White">
         <Grid>
-
             <Grid.RowDefinitions>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="0"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="5*"/>
-                        <ColumnDefinition Width="5*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <StackPanel Grid.Column="0" Orientation="Horizontal">
-                        <Button Width="40" Height="Auto" Content="Open" Click="Button_Click">
-                        </Button>
-                        <CheckBox Name="CheckBox_Nine" Height="Auto" Content="九宫格" Margin="10,0,0,0" Click="CheckBox_Nine_Click" Foreground="White" OpacityMask="{x:Null}"></CheckBox>
-                        <Button Name="Button_test" Content="Test" Margin="50,0,0,0" Height="Auto" Click="Button_test_Click" Visibility="Collapsed"></Button>
-                    </StackPanel>
-                    <StackPanel Visibility="Collapsed" Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
-                        <Button Name="Button_close" Content="X" Width="20" Margin="10,0,10,0" Click="Button_close_Click"></Button>
-                        <Button Name="Button_minimize" Content="-" Width="20" Margin="10,0,10,0" Click="Button_minimize_Click"></Button>
-                        <Button Name="Button_about" Content="?" Width="20" Margin="10,0,10,0" Height="Auto" Click="Button_about_Click"></Button>
-                    </StackPanel>
-                </Grid>
-
-            </Grid>
             <Grid Grid.Row="1">
                 <Border>
                     <Grid Name="Grid_image">
